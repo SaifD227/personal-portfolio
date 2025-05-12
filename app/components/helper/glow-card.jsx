@@ -1,11 +1,16 @@
 "use client"
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const GlowCard = ({ children , identifier}) => {
+const GlowCard = ({ children, identifier }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
-    // Check if we're in the browser
-    if (typeof window === 'undefined') return;
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
 
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
@@ -67,11 +72,10 @@ const GlowCard = ({ children , identifier}) => {
     RESTYLE();
     UPDATE();
 
-    // Cleanup event listener
     return () => {
       document.body.removeEventListener('pointermove', UPDATE);
     };
-  }, [identifier]);
+  }, [identifier, isMounted]);
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
