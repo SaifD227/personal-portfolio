@@ -1,18 +1,18 @@
 export const projectsData = [
     {
         id: 1,
-        name: 'AI Powered Financial App',
-        description: "Me and my team built an AI-powered financial mobile application. I have developed API using Express, Typescript, OpenAI, AWS, and MongoDB. Used OTP via AWS SES, Google, and Facebook for the authentication system. Built AI assistants using OpenAI's latest model and trained using our dataset. Voice messages are converted to text using AWS Transcribe. The app fetches data from Google Sheets and generates a PDF term sheet, sent via AWS SES.",
-        tools: ['Express', 'MongoDB', 'OpenAI API', 'AWS SES', 'AWS S3', 'Node Mailer', 'Joi', 'Puppeteer', 'EC2', 'PM2', 'Nginx'],
-        role: 'Backend Developer',
-        code: '',
-        demo: '',
+        name: 'CloudBin & Smart Client Management System',
+        description: "Me and my team built CloudBin is an Australian software platform specifically designed for skip bin and waste management businesses. It helps operators automate their daily operations, improve efficiency, and maintain better control over their services.",
+        tools: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'JWT', 'Redux', 'ShadCN UI', 'Tailwind CSS', 'Material UI', 'AWS EC2', 'AWS S3'],
+  role: 'Full Stack Developer',
+  code: '',
+  demo: '',
     },
     {
         id: 2,
-        name: 'Travel Agency App',
-        description: 'I have designed and developed a full-stack web app for 2Expedition, a travel agency in Armenia. I created the UI using NextJS, Typescript, MUI, TailwindCSS, Google Maps, Sun-Editor, and React Slick. The app supports multiple languages and currencies. I developed the API using NestJS, Typescript, MySQL, TypeORM, AWS, and Nodemailer. I deployed the front-end app to AWS Amplify and the back-end app to AWS EC2.',
-        tools: ['NextJS', 'Tailwind CSS', "Google Maps", "NestJS", "TypeScript", "MySQL", "AWS S3", "Sun-Editor", "Gmail Passkey"],
+        name: 'Vaccine Dose Management System',
+        description: 'Developed a full-stack web application to manage and display vaccination data for a software company. Created the frontend using React.js and TypeScript with Redux and Zustand for state management. Designed secure and RESTful APIs with Node.js and Express.js, and integrated MongoDB for efficient data handling. Implemented user authentication and role-based access control using JWT. Used ShadCN UI, Material UI, and Tailwind CSS to ensure a responsive and user-friendly design. Promoted code quality and best practices within a collaborative development environment.',
+        tools: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redux', 'Zustand', 'ShadCN UI', 'Material UI', 'Tailwind CSS'],
         role: 'Full Stack Developer',
         code: '',
         demo: '',
@@ -37,16 +37,3 @@ export const projectsData = [
     }
 ];
 
-
-// Do not remove any property.
-// Leave it blank instead as shown below
-
-// {
-//     id: 1,
-//     name: '',
-//     description: "",
-//     tools: [],
-//     role: '',
-//     code: '',
-//     demo: '',
-// },
