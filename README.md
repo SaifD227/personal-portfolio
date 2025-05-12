@@ -268,5 +268,10 @@ npm install -g next
 This installs Next.js globally
 
 then do the usual `npm run dev`
-#   f u l l - s t a c k - d e v e l o p e r - p o r t f o l i o  
+#   f u l l - s t a c k - d e v e l o p e r - p o r t f o l i o 
  
+ 
+
+
+
+.
