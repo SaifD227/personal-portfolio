@@ -3,14 +3,14 @@
 import { useEffect, useState } from 'react';
 
 const GlowCard = ({ children, identifier }) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    setIsClient(true);
   }, []);
 
   useEffect(() => {
-    if (!isMounted) return;
+    if (!isClient) return;
 
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
@@ -27,14 +27,16 @@ const GlowCard = ({ children, identifier }) => {
     };
 
     const UPDATE = (event) => {
+      if (!event) return;
+      
       for (const CARD of CARDS) {
         const CARD_BOUNDS = CARD.getBoundingClientRect();
 
         if (
-          event?.x > CARD_BOUNDS.left - CONFIG.proximity &&
-          event?.x < CARD_BOUNDS.left + CARD_BOUNDS.width + CONFIG.proximity &&
-          event?.y > CARD_BOUNDS.top - CONFIG.proximity &&
-          event?.y < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
+          event.x > CARD_BOUNDS.left - CONFIG.proximity &&
+          event.x < CARD_BOUNDS.left + CARD_BOUNDS.width + CONFIG.proximity &&
+          event.y > CARD_BOUNDS.top - CONFIG.proximity &&
+          event.y < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
         ) {
           CARD.style.setProperty('--active', 1);
         } else {
@@ -47,7 +49,7 @@ const GlowCard = ({ children, identifier }) => {
         ];
 
         let ANGLE =
-          (Math.atan2(event?.y - CARD_CENTER[1], event?.x - CARD_CENTER[0]) *
+          (Math.atan2(event.y - CARD_CENTER[1], event.x - CARD_CENTER[0]) *
             180) /
           Math.PI;
 
@@ -57,7 +59,8 @@ const GlowCard = ({ children, identifier }) => {
       }
     };
 
-    document.body.addEventListener('pointermove', UPDATE);
+    const handlePointerMove = (e) => UPDATE(e);
+    document.body.addEventListener('pointermove', handlePointerMove);
 
     const RESTYLE = () => {
       CONTAINER.style.setProperty('--gap', CONFIG.gap);
@@ -70,12 +73,23 @@ const GlowCard = ({ children, identifier }) => {
     };
 
     RESTYLE();
-    UPDATE();
+    UPDATE(null);
 
     return () => {
-      document.body.removeEventListener('pointermove', UPDATE);
+      document.body.removeEventListener('pointermove', handlePointerMove);
     };
-  }, [identifier, isMounted]);
+  }, [identifier, isClient]);
+
+  if (!isClient) {
+    return (
+      <div className={`glow-container-${identifier} glow-container`}>
+        <article className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}>
+          <div className="glows"></div>
+          {children}
+        </article>
+      </div>
+    );
+  }
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
