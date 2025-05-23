@@ -1,7 +1,7 @@
 export const contactsData = {
-    email: 'abdulrafayazad32@gmail.com',
-    phone: '+923288604211',
+    email: 'saifaalii237@gmail.com',
+    phone: '+923145360474',
     address: 'B17 Islamabad, Pakistan',
-    github: 'https://github.com/abdulraffayy',
-    linkedIn: 'https://www.linkedin.com/in/abdulrafayazad/',
+    github: 'https://github.com/SaifD227/',
+    linkedIn: 'linkedin.com/in/saif-ali-7645ab320/',
 }

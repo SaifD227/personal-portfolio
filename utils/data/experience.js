@@ -3,12 +3,12 @@ export const experiences = [
     id: 1,
     title: 'Full Stack Developer',
     company: "CloudQuik",
-    duration: "(May 2023 - Present )"
+    duration: "(March 2022 - Present )"
   },
   {
     id: 2,
     title: " Junior Full Stack Developer",
     company: "Ewarenet",
-    duration: "(June 2020 - Aug 2023)"
+    duration: "(June 2021 - March 2022)"
   },
 ]
